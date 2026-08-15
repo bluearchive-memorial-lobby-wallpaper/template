@@ -1,11 +1,11 @@
-# ba-memorylobby-wallpaper-template
+# ba-memorial-lobby-wallpaper-template
 
 《蔚蓝档案》记忆大厅风格 Wallpaper Engine Web 壁纸项目的 GitHub 模板仓库。它对标
 `wallpaper-hare-camping` 的结构，把“角色专属内容”与“通用运行时/工具链”分离：
 
-- **ba-memorylobby-wallpaper-runtime**：通用运行时框架，负责 Spine 渲染、交互、对话、
+- **ba-memorial-lobby-wallpaper-runtime**：通用运行时框架，负责 Spine 渲染、交互、对话、
   音频、设置、日志与调试面板。
-- **ba-memorylobby-wallpaper-toolkit**：通用构建、校验、打包工具。
+- **ba-memorial-lobby-wallpaper-toolkit**：通用构建、校验、打包工具。
 - **本模板**：薄型壁纸项目骨架，只保留角色资产、内容定义、Wallpaper Engine 元数据与
   项目文档。
 

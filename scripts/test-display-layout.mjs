@@ -4,7 +4,7 @@ import {
   calculateViewportLayout,
   createModelRotationMatrix,
   rotateModelPoint,
-} from "ba-memorylobby-wallpaper-runtime";
+} from "ba-memorial-lobby-wallpaper-runtime";
 import { loadWallpaperConfig } from "./lib/config-loader.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");

@@ -1,6 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import { validateDistributionFiles } from "ba-memorylobby-wallpaper-toolkit";
+import { validateDistributionFiles } from "ba-memorial-lobby-wallpaper-toolkit";
 import { assetLayout, TIER_SCALES } from "./lib/asset-layout.mjs";
 import { loadWallpaperConfig } from "./lib/config-loader.mjs";
 import { atlasPages, gifMetadata, pngDimensions } from "./lib/media.mjs";
@@ -162,7 +162,7 @@ try {
     throw new Error("Built HTML must mount the #app root");
   }
   if (
-    !loggingBootstrap.includes("memory-lobby-wallpaper-log:v1:") ||
+    !loggingBootstrap.includes("memorial-lobby-wallpaper-log:v1:") ||
     !loggingBootstrap.includes('window.addEventListener("error"') ||
     loggingBootstrap.includes("showDirectoryPicker")
   ) {

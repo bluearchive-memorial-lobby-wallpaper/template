@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
-import { validateWallpaperDefinition } from "ba-memorylobby-wallpaper-runtime";
+import { validateWallpaperDefinition } from "ba-memorial-lobby-wallpaper-runtime";
 import { loadWallpaperConfig } from "./lib/config-loader.mjs";
 import { gifMetadata, parseChecksumManifest } from "./lib/media.mjs";
 import { checkProjectDefaults } from "./lib/project-contract.mjs";
@@ -66,12 +66,12 @@ for (const script of [
   assert.equal(typeof packageJson.scripts?.[script], "string", `Missing npm script: ${script}`);
 }
 assert.equal(
-  packageJson.dependencies?.["ba-memorylobby-wallpaper-runtime"],
+  packageJson.dependencies?.["ba-memorial-lobby-wallpaper-runtime"],
   "^0.1.0",
   "Runtime dependency version must match the template contract",
 );
 assert.equal(
-  packageJson.devDependencies?.["ba-memorylobby-wallpaper-toolkit"],
+  packageJson.devDependencies?.["ba-memorial-lobby-wallpaper-toolkit"],
   "^0.1.0",
   "Toolkit dependency version must match the template contract",
 );

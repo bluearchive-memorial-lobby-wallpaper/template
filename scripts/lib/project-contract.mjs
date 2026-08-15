@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { DEFAULT_SETTINGS } from "ba-memorylobby-wallpaper-runtime";
+import { DEFAULT_SETTINGS } from "ba-memorial-lobby-wallpaper-runtime";
 
 export function projectDefaultsFromProperties(properties) {
   return {

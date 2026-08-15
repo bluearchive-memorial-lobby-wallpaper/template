@@ -2,9 +2,9 @@
 
 ## 依赖更新
 
-- runtime 修复与浏览器侧功能：通过 `ba-memorylobby-wallpaper-runtime` 的 npm 版本更新
+- runtime 修复与浏览器侧功能：通过 `ba-memorial-lobby-wallpaper-runtime` 的 npm 版本更新
   传播。
-- 构建、测试、校验与打包改进：通过 `ba-memorylobby-wallpaper-toolkit` 的 npm 版本更新
+- 构建、测试、校验与打包改进：通过 `ba-memorial-lobby-wallpaper-toolkit` 的 npm 版本更新
   传播。
 - 升级后运行 `npm run check`，并重新完成 Chrome 与 Wallpaper Engine 两项验证门禁。
 
