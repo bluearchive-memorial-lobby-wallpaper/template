@@ -12,7 +12,7 @@ assert.equal(project.type, "web");
 assert.equal(project.file, "index.html");
 assert.equal(project.version, 2);
 assert.equal(project.preview, "preview.gif");
-assert.equal(project.visibility, "private");
+assert.equal(project.visibility, "public");
 assert.ok(!Object.hasOwn(project, "workshopid"));
 assert.ok(!Object.hasOwn(project, "workshopurl"));
 console.log(
