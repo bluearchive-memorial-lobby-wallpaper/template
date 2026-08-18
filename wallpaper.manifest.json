@@ -1,0 +1,56 @@
+{
+    "schemaVersion":  1,
+    "project":  {
+                    "id":  "wallpaper-template",
+                    "entry":  "src/main.ts"
+                },
+    "runtime":  {
+                    "package":  "ba-memorial-lobby-wallpaper-runtime",
+                    "range":  "^0.1.0"
+                },
+    "content":  {
+                    "studentId":  "placeholder",
+                    "variantId":  "placeholder"
+                },
+    "resources":  {
+                      "model":  {
+                                    "sourceTier":  "2k",
+                                    "outputTiers":  [
+                                                        "2k",
+                                                        "4k",
+                                                        "8k"
+                                                    ]
+                                },
+                      "preview":  true
+                  },
+    "structure":  {
+                      "requiredFiles":  [
+                                            "src/main.ts",
+                                            "src/config.ts",
+                                            "public/project.json",
+                                            "public/preview.gif",
+                                            "README.md",
+                                            ".gitignore"
+                                        ],
+                      "validateHtmlShell":  true,
+                      "validatePreview":  true,
+                      "validateChecksums":  false
+                  },
+    "build":  {
+                  "outputDirectory":  "dist",
+                  "logRoute":  "/__wallpaper-log",
+                  "target":  "chrome90"
+              },
+    "distribution":  {
+                         "requiredFiles":  [
+                                               "index.html",
+                                               "logging-bootstrap.js",
+                                               "preview.gif"
+                                           ],
+                         "previewPath":  "preview.gif",
+                         "validatePreview":  true
+                     },
+    "package":  {
+                    "archiveName":  "wallpaper-template.zip"
+                }
+}
