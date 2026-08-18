@@ -1,85 +1,113 @@
 # ba-memorial-lobby-wallpaper-template
 
-《蔚蓝档案》记忆大厅风格 Wallpaper Engine Web 壁纸项目的 GitHub 模板仓库。它对标
-`wallpaper-hare-camping` 的结构，把“角色专属内容”与“通用运行时/工具链”分离：
+English | [简体中文](README.zh-CN.md)
 
-- **ba-memorial-lobby-wallpaper-runtime**：通用运行时框架，负责 Spine 渲染、交互、对话、
-  音频、设置、日志与调试面板。
-- **ba-memorial-lobby-wallpaper-toolkit**：通用构建、校验、打包工具。
-- **本模板**：薄型壁纸项目骨架，只保留角色资产、内容定义、Wallpaper Engine 元数据与
-  项目文档。
+A GitHub template repository for Blue Archive memorial-lobby-style Wallpaper
+Engine web wallpapers. It mirrors the structure of `wallpaper-hare-camping` and
+separates "character-specific content" from the shared runtime/toolchain:
 
-## 快速开始
+- **ba-memorial-lobby-wallpaper-runtime**: the shared runtime framework — Spine
+  rendering, interactions, dialogues, audio, settings, logging, and the debug
+  panel.
+- **ba-memorial-lobby-wallpaper-toolkit**: the shared build, validation, and
+  packaging tools.
+- **This template**: a thin wallpaper project skeleton that keeps only
+  character assets, content definitions, Wallpaper Engine metadata, and project
+  documentation.
 
-1. 在 GitHub 上使用本仓库的 **Use this template** 创建新仓库。
-2. 克隆后先阅读 [docs/CREATING-A-PROJECT.md](docs/CREATING-A-PROJECT.md)，按清单替换
-   `src/config.ts`、`public/project.json` 等文件中的占位符。
-3. 把原始模型、音频、BGM 放入 `local-assets/original/`，生成校验清单：
+## Quick Start
+
+1. Create a new repository from this one with GitHub's **Use this template**.
+2. After cloning, read [docs/CREATING-A-PROJECT.md](docs/CREATING-A-PROJECT.md)
+   and replace the placeholders in `src/config.ts`, `public/project.json`, and
+   other files per the checklist.
+3. Put the original model, audio, and BGM into `local-assets/original/` and
+   generate the checksum manifest:
 
    ```powershell
    npm install
    npm run generate:checksums
    ```
 
-4. 本地开发与构建：
+4. Develop and build locally:
 
    ```powershell
-   npm run dev        # 准备资产并启动 Vite 开发服务器
-   npm run build      # 准备资产、类型检查、构建并校验 dist/
-   npm run package:offline  # 生成确定性离线 ZIP
+   npm run dev        # prepare assets and start the Vite dev server
+   npm run build      # prepare assets, typecheck, build, and validate dist/
+   npm run package:offline  # build a deterministic offline ZIP
    ```
 
-5. 发布前必须完成真实 Chrome 行为测试与 Wallpaper Engine 窗口测试，详见
-   [docs/CREATING-A-PROJECT.md](docs/CREATING-A-PROJECT.md) 的“验证门禁”。
+5. Before publishing, complete the real Chrome behavior tests and the
+   Wallpaper Engine window tests described in
+   [docs/CREATING-A-PROJECT.md](docs/CREATING-A-PROJECT.md) under "Verification
+   Gates".
 
-> 模板仓库自身（未放入任何角色资产时）可以运行 `npm run check`（类型检查、回归测试、
-> 结构校验），但 `npm run build` 需要先提供 `local-assets/original/` 中的真实资源。
+> The template repository itself (without character assets) can run
+> `npm run check` (typecheck, regression tests, structure validation), but
+> `npm run build` requires real assets in `local-assets/original/`.
 
-## 必须替换的占位符
+## Placeholders to Replace
 
-在创建角色项目时，以下位置需要替换为真实内容：
+When creating a character project, replace the following with real content:
 
-| 位置 | 内容 |
+| Location | Content |
 | --- | --- |
-| `src/config.ts` 中的 `PROJECT` | 项目 id、slug、标题、版本标识 |
-| `src/config.ts` 中的 `MODEL` | 模型路径、动画/骨骼/命中参数、设计视口 |
-| `src/config.ts` 中的 `BGM` / `DIALOGUES` | BGM 文件与对话/字幕内容 |
-| `public/project.json` | 标题、描述、预览图、分级与标签 |
-| `public/preview.gif` | 真实的 256×256 动画预览图 |
-| `public/THIRD-PARTY-NOTICES.txt` | 真实资源的来源与许可记录 |
-| `public/OFFLINE-README.txt` | 版本号与安装说明 |
-| `research/PROVENANCE.md` | 每个二进制资源的来源与哈希记录 |
+| `PROJECT` in `src/config.ts` | project id, slug, title, version label |
+| `MODEL` in `src/config.ts` | model paths, animations/bones/hit parameters, design viewport |
+| `BGM` / `DIALOGUES` in `src/config.ts` | BGM file and dialogue/subtitle content |
+| `public/project.json` | title, description, preview, rating, and tags |
+| `public/preview.gif` | a real 256×256 animated preview image |
+| `public/THIRD-PARTY-NOTICES.txt` | provenance and license records for the real assets |
+| `public/OFFLINE-README.txt` | version number and installation notes |
+| `research/PROVENANCE.md` | provenance and hashes for every binary asset |
 
-详细说明见 [docs/STRUCTURE.md](docs/STRUCTURE.md)。
+See [docs/STRUCTURE.md](docs/STRUCTURE.md) for details.
 
-## npm 命令
+## npm Commands
 
-| 命令 | 作用 | 是否需要角色资产 |
+| Command | Purpose | Requires character assets |
 | --- | --- | --- |
-| `npm run typecheck` | TypeScript 类型检查 | 否 |
-| `npm test` | 显示布局、字幕、设置契约、日志桥回归测试 | 否 |
-| `npm run validate:structure` | 模板/项目结构校验 | 否 |
-| `npm run check` | 以上三项的总入口 | 否 |
-| `npm run generate:checksums` / `verify:checksums` | 生成/回验资产 SHA-256 清单 | 是 |
-| `npm run prepare:assets` | 校验并拷贝模型/音频/BGM/Spine 运行时到 `public/` | 是 |
-| `npm run dev` | 准备资产并启动开发服务器 | 是 |
-| `npm run build` | 准备资产、类型检查、构建并校验 `dist/` | 是 |
-| `npm run package:offline` | 生成确定性离线 ZIP 与清单校验 | 是 |
-| `npm run inspect:spine` | 读取 `.skel` 导出动画/骨骼/事件报告 | 是 |
-| `npm run generate:model-textures` | 用 Real-CUGAN 生成 4K/8K 纹理档位 | 是（可选） |
+| `npm run typecheck` | TypeScript type check | No |
+| `npm test` | display layout, subtitle, settings contract, log bridge regression tests | No |
+| `npm run validate:structure` | template/project structure validation | No |
+| `npm run check` | combined entry point for the three above | No |
+| `npm run generate:checksums` / `verify:checksums` | generate/verify the asset SHA-256 manifest | Yes |
+| `npm run prepare:assets` | validate and copy model/audio/BGM/Spine runtime into `public/` | Yes |
+| `npm run dev` | prepare assets and start the dev server | Yes |
+| `npm run build` | prepare assets, typecheck, build, and validate `dist/` | Yes |
+| `npm run package:offline` | build a deterministic offline ZIP with manifest validation | Yes |
+| `npm run inspect:spine` | export animation/bone/event report from the `.skel` | Yes |
+| `npm run generate:model-textures` | generate 4K/8K texture tiers with Real-CUGAN | Yes (optional) |
 
-## 更新模型
+## Updating the Model
 
-运行时与工具链通过 npm 版本发布，模板变更只影响新建项目。升级依赖与迁移方式见
-[docs/UPGRADING.md](docs/UPGRADING.md)。
+The runtime and toolchain are released through npm versions; template changes
+only affect new projects. See [docs/UPGRADING.md](docs/UPGRADING.md) for
+dependency upgrades and migrations.
 
-## 验证门禁
+## Verification Gates
 
-任何功能改动部署到 Wallpaper Engine 项目目录之前，必须：
+Before any functional change is deployed to a Wallpaper Engine project
+directory, you must:
 
-1. 在用户已打开的外部 Chrome 中做端到端行为测试，检查控制台错误；
-2. 在真实 Wallpaper Engine 窗口中测试指针交互、属性回调与暂停/恢复；
-3. 通过后才复制或同步构建产物。
+1. Run end-to-end behavior tests in a user-opened external Chrome and check
+   the console for errors;
+2. Test pointer interaction, property callbacks, and pause/resume in a real
+   Wallpaper Engine window;
+3. Only then copy or sync the build artifacts.
 
-浏览器侧的 `?debug=1`、`?testWeInterfaces` 等只是预检，不能替代真实 Wallpaper Engine
-窗口测试。资产准备与发布流程见 [docs/ASSET-PIPELINE.md](docs/ASSET-PIPELINE.md)。
+Browser-side `?debug=1`, `?testWeInterfaces`, etc. are pre-checks only and
+cannot replace a real Wallpaper Engine window test. See
+[docs/ASSET-PIPELINE.md](docs/ASSET-PIPELINE.md) for asset preparation and
+release workflows.
+
+## Copyright Notice
+
+Wallpapers created from this template bundle Blue Archive game assets
+(characters, artwork, voices, music, subtitle text). Those assets belong to
+their respective rights holders, including NEXON Games Co., Ltd., Yostar, and
+other Blue Archive rightsholders. Character projects must keep this notice
+(with the rights holders listed above) in their README and distribution
+descriptions, and must state that the project and its assets are provided for
+informational and educational purposes only. Fan projects are unofficial and
+not affiliated with, sponsored by, or endorsed by those companies.
