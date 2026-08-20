@@ -18,7 +18,7 @@ export const PROJECT = {
   id: "blue-archive-my-character",
   slug: "my-character",
   title: "My Character (Variant)",
-  editionLabel: "OFFLINE EDITION · 1.0.0",
+  editionLabel: `PUBLIC EDITION · ${__WALLPAPER_VERSION__}`,
 } as const;
 
 export const VOICE_LOCALES: readonly VoiceLocale[] = ["ja", "zh-cn", "ko"];
