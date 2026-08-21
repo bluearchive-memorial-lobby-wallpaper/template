@@ -1,5 +1,5 @@
 import "ba-memorial-lobby-wallpaper-runtime/style.css";
-import { App, createWallpaperShell } from "ba-memorial-lobby-wallpaper-runtime";
+import { App, createWallpaperShell, loadSpineRuntime } from "ba-memorial-lobby-wallpaper-runtime";
 import { findDialogueLine, PROJECT, WALLPAPER_DEFINITION } from "./config";
 import { wallpaperLogger } from "./logging/WallpaperLogger";
 
@@ -19,4 +19,4 @@ const app = new App(root, {
   findDialogueLine,
   logger: wallpaperLogger,
 });
-void app.start();
+void loadSpineRuntime(WALLPAPER_DEFINITION.model.spineVersion).then(() => app.start());
